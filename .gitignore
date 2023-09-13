@@ -1,0 +1,12 @@
+node_modules
+.DS_Store
+.idea
+dist
+spa
+tsc
+client
+*.local
+*.log
+.vscode
+assets/lib
+assets/style
