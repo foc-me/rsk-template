@@ -2,8 +2,7 @@ const path = require("node:path")
 const webpack = require("webpack")
 const { merge } = require("webpack-merge")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
-const rimraf = require("rimraf")
-const { makeDefine, ModeType } = require("./base")
+const { makeDefine, ModeType, rmDir } = require("./base")
 const config = require("../webpack/service.build")
 
 const { DefinePlugin } = webpack
@@ -33,11 +32,7 @@ function makePlugins() {
 }
 
 function makeClean() {
-    rimraf.sync(path.resolve(__dirname, "../dist"), {
-        filter: (dir) => {
-            return !dir.includes("/assets/")
-        }
-    })
+    rmDir(path.resolve(__dirname, "../dist"))
 }
 
 function makeConfig() {

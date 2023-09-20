@@ -6,8 +6,7 @@ module.exports = {
         alias: {
             "assets": path.resolve(__dirname, "../assets"),
             "controller": path.resolve(__dirname, "../src/controller"),
-            "module": path.resolve(__dirname, "../src/module"),
-            "utils": path.resolve(__dirname, "../src/utils")
+            "module": path.resolve(__dirname, "../src/module")
         }
     }
 }
