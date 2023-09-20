@@ -42,8 +42,6 @@
       "module": ["./src/module"],
       "service/*": ["./src/service/*"],
       "service": ["./src/service"],
-      "utils/*": ["./src/utils/*"],
-      "utils": ["./src/utils"],
       "view/*": ["./src/view/*"],
       "view": ["./src/view"]
     },                                                   /* Specify a set of entries that re-map imports to additional lookup locations. */

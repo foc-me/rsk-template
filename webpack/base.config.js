@@ -10,7 +10,6 @@ module.exports = {
             "controller": path.resolve(__dirname, "../src/controller"),
             "module": path.resolve(__dirname, "../src/module"),
             "service": path.resolve(__dirname, "../src/service"),
-            "utils": path.resolve(__dirname, "../src/utils"),
             "view": path.resolve(__dirname, "../src/view")
         }
     }
