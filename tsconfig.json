@@ -8,9 +8,7 @@
       "controller/*": ["./src/controller/*"],
       "controller": ["./src/controller"],
       "module/*": ["./src/module/*"],
-      "module": ["./src/module"],
-      "utils/*": ["./src/utils/*"],
-      "utils": ["./src/utils"]
+      "module": ["./src/module"]
     },
     "outDir": "./tsc",
     "esModuleInterop": true,
