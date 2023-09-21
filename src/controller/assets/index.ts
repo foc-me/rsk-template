@@ -1,6 +1,6 @@
 import path from "node:path"
 import fs from "node:fs"
-import { Context } from "koa"
+import type { Context } from "koa"
 import mime from "mime"
 
 const cwd = process.cwd()
