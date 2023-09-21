@@ -1,4 +1,3 @@
-import type KoaRouter from "@koa/router"
 import assets from "./assets"
 import home from "./home"
 
@@ -7,7 +6,7 @@ const routes = [
     ...home
 ]
 
-function apply(router: KoaRouter) {
+function apply(router) {
     for (const route of routes) {
         const { method, path, controller, name } = route
         const routeMethod = Array.isArray(method) ? method : [method || "get"]

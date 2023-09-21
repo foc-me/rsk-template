@@ -10,7 +10,7 @@ function date() {
     return dater.format("[YYYY-MM-DD HH:mm:ss:SSS]")
 }
 
-function makeExit(callback?: () => void) {
+function makeExit(callback) {
     process.stdin.resume()
     const timer = createTimer()
     process.on("exit", (code) => {

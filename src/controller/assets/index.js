@@ -1,16 +1,15 @@
 import path from "node:path"
 import fs from "node:fs"
-import { Context } from "koa"
 import mime from "mime"
 
 const cwd = process.cwd()
 const dist = path.join(cwd, "dist")
 
-function makeUrl(url: string) {
+function makeUrl(url) {
     return url.split("?")[0]
 }
 
-function makePath(url: string) {
+function makePath(url) {
     for (const item of [cwd, dist]) {
         const filePath = path.join(item, makeUrl(url))
         if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
@@ -19,7 +18,7 @@ function makePath(url: string) {
     }
 }
 
-async function controller(ctx: Context) {
+async function controller(ctx) {
     const { originalUrl } = ctx
     const filePath = makePath(originalUrl)
     if (filePath) {
@@ -33,4 +32,4 @@ async function controller(ctx: Context) {
 
 export default [
     { path: "/assets/(.*)", controller, name: "assets" }
-] as Route[]
+]
