@@ -1,16 +1,4 @@
-import type { ReactNode } from "react"
-
-type Link = { href: string, rel?: string }
-
-export type Props = Partial<{
-    title: string,
-    scripts: string[],
-    links: Link[],
-    styles: string[],
-    children: ReactNode
-}>
-
-function App(props: Props) {
+function App(props) {
     const {
         title = ",,Ծ‸Ծ,,",
         scripts = [],

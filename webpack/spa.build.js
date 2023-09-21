@@ -11,7 +11,7 @@ module.exports = {
         react: ["react", "react-dom", "react-router-dom"],
         util: ["axios"],
         index: {
-            import: path.resolve(__dirname, "../src/view/index.tsx"),
+            import: path.resolve(__dirname, "../src/view/index.jsx"),
             dependOn: ["react", "util"]
         }
     },
@@ -24,7 +24,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.tsx?$/,
+                test: /.jsx?$/,
                 use: ["babel-loader"]
             },
             {

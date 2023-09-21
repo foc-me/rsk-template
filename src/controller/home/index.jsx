@@ -1,8 +1,7 @@
-import type { RouterContext } from "@koa/router"
 import { renderToPipeableStream } from "react-dom/server"
 import makeApp from "app"
 
-async function home(ctx: RouterContext) {
+async function home(ctx) {
     const App = await makeApp(ctx, {
         scripts: [
             "/assets/lib/runtime.js",
@@ -27,4 +26,4 @@ const routes = [
     { path: "/", controller: home }
 ]
 
-export default routes as Route[]
+export default routes

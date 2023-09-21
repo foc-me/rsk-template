@@ -1,14 +1,12 @@
-import type { Context } from "koa"
-import type { FC } from "react"
 import {
     createStaticHandler,
     createStaticRouter,
     StaticRouterProvider
 } from "react-router-dom/server"
-import App, { type Props } from "./app"
+import App from "./app"
 import routes from "./route"
 
-async function makeApp(ctx: Context, props: Props = {}): Promise<FC<Props>> {
+async function makeApp(ctx, props = {}) {
     const { originalUrl } = ctx
     const request = new Request(`http://,,Ծ‸Ծ,,${originalUrl}`)
     const handler = createStaticHandler(routes)

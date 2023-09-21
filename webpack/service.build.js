@@ -3,7 +3,7 @@ const path = require("path")
 module.exports = {
     target: "node",
     entry: {
-        index: path.resolve(__dirname, "../src/index.ts")
+        index: path.resolve(__dirname, "../src/index.js")
     },
     output: {
         publicPath: "/",
@@ -13,11 +13,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.js$/,
-                use: ["babel-loader"]
-            },
-            {
-                test: /.tsx?$/,
+                test: /.jsx?$/,
                 use: ["babel-loader"]
             },
             {

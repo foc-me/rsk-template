@@ -1,8 +1,5 @@
-import type { Context, Next } from "koa"
-import type KoaRouter from "@koa/router"
-
-function respond(router: KoaRouter) {
-    return async (ctx: Context, next: Next) => {
+function respond(router) {
+    return async (ctx, next) => {
         const { originalUrl, method } = ctx
         const { path } = router.match(originalUrl, method)
         const routes = path.filter(item => {
