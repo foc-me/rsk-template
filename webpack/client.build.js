@@ -1,9 +1,6 @@
 const path = require("path")
-const webpack = require("webpack")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin")
-
-const { DefinePlugin } = webpack
 
 module.exports = {
     entry: {
@@ -50,7 +47,6 @@ module.exports = {
         runtimeChunk: "single"
     },
     plugins: [
-        new DefinePlugin({ __SSR__: JSON.stringify(true) }),
         new MiniCssExtractPlugin({
             filename: "assets/style/[name].css",
             linkType: "text/css"

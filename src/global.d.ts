@@ -12,6 +12,7 @@ declare module "*.css" {
     export default content
 }
 
+declare var __APP__: string
 declare var __MODE__: string
 declare var __DEBUG__: boolean
 declare var __PORT__: number
