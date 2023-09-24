@@ -2,7 +2,7 @@ const path = require("path")
 
 module.exports = {
     resolve: {
-        extensions: [".js", ".jsx", ".css"],
+        extensions: [".js"],
         alias: {
             "assets": path.resolve(__dirname, "../assets"),
             "controller": path.resolve(__dirname, "../src/controller"),
