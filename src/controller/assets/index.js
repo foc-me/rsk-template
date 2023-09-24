@@ -1,27 +1,15 @@
 import path from "node:path"
 import fs from "node:fs"
-import { Context } from "koa"
 import mime from "mime"
-
-const cwd = process.cwd()
-const dist = path.join(cwd, "dist")
+import module from "module/assets"
 
 function makeUrl(url) {
     return url.split("?")[0]
 }
 
-function makePath(url) {
-    for (const item of [cwd, dist]) {
-        const filePath = path.join(item, makeUrl(url))
-        if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-            return filePath
-        }
-    }
-}
-
 async function controller(ctx) {
     const { originalUrl } = ctx
-    const filePath = makePath(originalUrl)
+    const filePath = module.getOne(makeUrl(originalUrl))
     if (filePath) {
         const mimeType = mime.getType(path.extname(filePath))
         if (mimeType) {

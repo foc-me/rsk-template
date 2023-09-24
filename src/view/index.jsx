@@ -13,7 +13,7 @@ function App() {
 
 const root = document.getElementById("root")
 if (root) {
-    if (__SSR__) {
+    if (__APP__ === "client") {
         hydrateRoot(root, <App/>)
     } else {
         const reactRoot = createRoot(root)

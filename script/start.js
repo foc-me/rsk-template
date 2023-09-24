@@ -2,9 +2,10 @@ const webpack = require("webpack")
 const { merge } = require("webpack-merge")
 const webpackDevServer = require("webpack-dev-server")
 const createArgv = require("@focme/argv")
-const { BuildType, makeEnv } = require("./base")
+const { BuildType, makeEnv, makeDevtool } = require("./base")
 const base = require("../webpack/base.config")
 const config = require("../webpack/spa.start")
+const { makePlugins } = require("./spa")
 
 function makeServer() {
     return {
@@ -24,7 +25,7 @@ async function main() {
 
     const { __MODE__ } = process.env
     const mode = { mode: __MODE__ }
-    const compiler = webpack(merge(base, mode, config))
+    const compiler = webpack(merge(base, mode, makeDevtool(), config, makePlugins()))
     const server = new webpackDevServer(makeServer(), compiler)
     await server.start()
 }

@@ -8,8 +8,9 @@ const config = require("../webpack/spa.build")
 const { DefinePlugin } = webpack
 
 function makePlugins() {
-    const { __MODE__, __DEBUG__, __BASE__, __ROOT__ } = process.env
+    const { __APP__, __MODE__, __DEBUG__, __BASE__, __ROOT__ } = process.env
     const defines = {
+        __APP__,
         __MODE__,
         __DEBUG__: __DEBUG__ === "__DEBUG__",
         __BASE__,
@@ -40,3 +41,4 @@ function makeConfig() {
 }
 
 module.exports = makeConfig
+module.exports.makePlugins = makePlugins

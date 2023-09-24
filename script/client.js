@@ -7,8 +7,9 @@ const config = require("../webpack/client.build")
 const { DefinePlugin } = webpack
 
 function makePlugins() {
-    const { __MODE__, __DEBUG__, __BASE__, __ROOT__ } = process.env
+    const { __APP__, __MODE__, __DEBUG__, __BASE__, __ROOT__ } = process.env
     const defines = {
+        __APP__,
         __MODE__,
         __DEBUG__: __DEBUG__ === "__DEBUG__",
         __BASE__,
