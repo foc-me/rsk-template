@@ -35,10 +35,10 @@ function makeEnv(build, argv) {
     const currentMode = nilEmpty(mode) ? __MODE__ : mode
     const currentDebug = nilEmpty(debug) ? __DEBUG__ : debug
     const currentPort = nilEmpty(port) ? __PORT__ : port
+    process.env.__APP__ = build
     process.env.__MODE__ = currentMode
     process.env.__DEBUG__ = currentDebug ? "__DEBUG__" : ""
     process.env.__PORT__ = currentPort
-    process.env.__SSR__ = build === BuildType.client ? "__SSR__" : ""
 }
 
 function nil(target) {
@@ -76,6 +76,13 @@ function makeDefine(target) {
     }))
 }
 
+function makeDevtool() {
+    switch (process.env.__MODE__) {
+        case "development": return { devtool: "eval-cheap-module-source-map" }
+        case "production": return { devtool: "nosources-source-map" }
+        default: return {}
+    }
+}
 
 module.exports = {
     ModeType,
@@ -87,5 +94,6 @@ module.exports = {
     nilEmpty,
     rmDir,
     rmPath,
-    makeDefine
+    makeDefine,
+    makeDevtool
 }
