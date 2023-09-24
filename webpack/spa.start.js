@@ -1,8 +1,5 @@
 const path = require("path")
-const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-
-const { DefinePlugin } = webpack
 
 module.exports = {
     entry: {
@@ -44,7 +41,6 @@ module.exports = {
         runtimeChunk: "single"
     },
     plugins: [
-        new DefinePlugin({ __SSR__: JSON.stringify(false) }),
         new HtmlWebpackPlugin({
             title: ",,Ծ‸Ծ,,",
             chunks: ["react", "util", "index"],
