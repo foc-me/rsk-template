@@ -8,11 +8,10 @@ const config = require("../webpack/service.build")
 const { DefinePlugin } = webpack
 
 function makePlugins() {
-    const { __MODE__, __DEBUG__, __PORT__, __ASSETS__ } = process.env
+    const { __MODE__, __DEBUG__, __PORT__ } = process.env
     const defines = {
         __MODE__,
         __DEBUG__: __DEBUG__ === "__DEBUG__",
-        __ASSETS__,
         __PORT__
     }
     const plugins = [
