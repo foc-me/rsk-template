@@ -31,14 +31,22 @@ function makeConfig(type) {
 
 function makeEnv(build, argv) {
     const { port, debug, mode, config } = argv
-    const { __MODE__, __DEBUG__, __PORT__ } = makeConfig(config)
+    const {
+        __MODE__,
+        __DEBUG__,
+        __PORT__,
+        __BASE__,
+        __ROOT__
+    } = makeConfig(config)
     const currentMode = nilEmpty(mode) ? __MODE__ : mode
     const currentDebug = nilEmpty(debug) ? __DEBUG__ : debug
     const currentPort = nilEmpty(port) ? __PORT__ : port
+    process.env.__APP__ = build
     process.env.__MODE__ = currentMode
     process.env.__DEBUG__ = currentDebug ? "__DEBUG__" : ""
     process.env.__PORT__ = currentPort
-    process.env.__SSR__ = build === BuildType.client ? "__SSR__" : ""
+    process.env.__BASE__ = __BASE__
+    process.env.__ROOT__ = __ROOT__
 }
 
 function nil(target) {
@@ -76,6 +84,14 @@ function makeDefine(target) {
     }))
 }
 
+function makeDevtool() {
+    switch (process.env.__MODE__) {
+        case "development": return { devtool: "eval-cheap-module-source-map" }
+        case "production": return { devtool: "nosources-source-map" }
+        default: return {}
+    }
+}
+
 module.exports = {
     ModeType,
     ConfigType,
@@ -86,5 +102,6 @@ module.exports = {
     nilEmpty,
     rmDir,
     rmPath,
-    makeDefine
+    makeDefine,
+    makeDevtool
 }
