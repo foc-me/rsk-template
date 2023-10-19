@@ -4,11 +4,11 @@ import makeApp from "app"
 async function home(ctx) {
     const App = await makeApp(ctx, {
         scripts: [
-            "/assets/lib/runtime.js",
-            "/assets/lib/react.js",
-            "/assets/lib/util.js",
-            "/assets/lib/index.js",
-            "/assets/lib/home.js"
+            { src: "/assets/lib/runtime.js" },
+            { src: "/assets/lib/react.js" },
+            { src: "/assets/lib/util.js" },
+            { src: "/assets/lib/index.js" },
+            { src: "/assets/lib/home.js" }
         ],
         links: [
             { href: "/assets/style/index.css" },
