@@ -29,9 +29,7 @@ function App(props: Props) {
             })}
             {styles.map((style, index) => {
                 const innerHtml = { __html: style }
-                return <style key={index} type="text/css" dangerouslySetInnerHTML={innerHtml}>
-                    {style}
-                </style>
+                return <style key={index} type="text/css" dangerouslySetInnerHTML={innerHtml}/>
             })}
         </head>
         <body>
