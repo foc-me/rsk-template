@@ -11,20 +11,21 @@ function App(props) {
         <head>
             <title>{title}</title>
             <meta charSet="UTF-8"/>
-            {scripts.map((script, index) => {
-                return <script key={index} defer type="text/javascript" src={script}/>
-            })}
             {links.map(({ href, rel = "stylesheet" }, index) => {
                 return <link key={index} href={href} rel={rel}/>
             })}
             {styles.map((style, index) => {
-                return <style key={index} type="text/css">
-                    {style}
-                </style>
+                const innerHtml = { __html: style }
+                return <style key={index} type="text/css" dangerouslySetInnerHTML={innerHtml}/>
             })}
         </head>
         <body>
             <div className="root" id="root">{children}</div>
+            {scripts.map((script, index) => {
+                const { src, content } = script
+                const innerHtml = { __html: content }
+                return <script key={index} defer type="text/javascript" src={src} dangerouslySetInnerHTML={innerHtml}/>
+            })}
         </body>
     </html>
 }
