@@ -1,3 +1,3 @@
-# @focme/rsk-template
+# rsk-template lib
 
-this is the template for create-rsk2
+a lib project template with rollup
